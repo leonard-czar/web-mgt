@@ -20,12 +20,12 @@ class ProjectService
         return $this->projectRepository->paginated($perPage);
     }
 
-    public function getProjectById(int $id): ?Project
+    public function getProjectById(int $id)
     {
         return $this->projectRepository->findById($id);
     }
 
-    public function createProject(array $data): Project
+    public function createProject(array $data)
     {
         return $this->projectRepository->create($data);
     }

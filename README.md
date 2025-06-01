@@ -96,8 +96,8 @@ A comprehensive, secure, and scalable web portal built with Laravel for managing
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/portal-app.git
-cd portal-app
+git clone https://github.com/leonard-czar/web-mgt.git
+cd web-mgt
 ```
 
 ### 2. Install Dependencies

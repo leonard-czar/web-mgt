@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     
 
-    // User management (Admin only)
+    // User management
     Route::resource('users', UserController::class)->except(['create', 'store']);
     Route::post('/users/{user}/toggle-status', [UserController::class, 'toggleStatus'])
         ->name('users.toggle-status');
