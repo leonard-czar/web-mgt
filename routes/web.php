@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
@@ -54,6 +55,16 @@ Route::middleware('auth')->group(function () {
 
     // Analytics
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
+
+        // Comment routes
+        Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+        Route::get('/comments/{comment}', [CommentController::class, 'show'])->name('comments.show');
+        Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+        Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+        
+        // AJAX endpoint for getting project comments
+        Route::get('/projects/{project}/comments', [CommentController::class, 'getProjectComments'])->name('projects.comments');
+    
 });
 
 

@@ -15,4 +15,10 @@ class Project extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+    }
+
+   
 }

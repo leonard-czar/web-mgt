@@ -39,4 +39,14 @@ class ProjectService
     {
         return $this->projectRepository->delete($project);
     }
+    public function getProjectWithComments(int $id)
+    {
+        $project = $this->projectRepository->findById($id);
+
+        if ($project) {
+            $project->load(['comments.employee.department']);
+        }
+
+        return $project;
+    }
 }

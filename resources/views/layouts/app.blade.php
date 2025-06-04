@@ -138,8 +138,23 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                // Auto-close all alerts after 5 seconds
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    setTimeout(function() {
+                        // Use Bootstrap's built-in close functionality
+                        const closeButton = alert.querySelector('.btn-close');
+                        if (closeButton) {
+                            closeButton.click();
+                        }
+                    }, 5000); // 5000ms = 5 seconds
+                });
+            });
+            </script>
 
-    
+
     @stack('scripts')
 </body>
 

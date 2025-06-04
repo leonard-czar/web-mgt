@@ -40,9 +40,14 @@ class ProjectController extends Controller
             ->with('success', 'Project created successfully.');
     }
 
+
     public function show(Project $project)
     {
         $project = $this->projectService->getProjectById($project->id);
+
+        // Load comments with user relationships
+        $project->load(['comments.user']);
+
         return view('projects.show', compact('project'));
     }
 
